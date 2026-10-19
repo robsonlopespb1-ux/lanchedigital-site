@@ -1,43 +1,57 @@
-# Site institucional — Lanche Digital
+# Site do Lanche Digital
 
-Site de apresentação do **Lanche Digital**, sistema de gestão para cantina escolar.
-Publicado em **https://lanchedigital.com.br**.
+Site institucional do Lanche Digital, sistema de gestão para cantinas
+escolares. Uma página estática, sem framework e sem etapa de build.
 
-É um site **estático**: um único `index.html`, imagens, favicon, manifesto, `robots.txt` e
-`sitemap.xml`. Não há build, framework, `package.json` nem dependências — o que está aqui é
-exatamente o que o navegador recebe.
+## Endereço
 
-O **sistema** (a aplicação que as cantinas usam) é outro projeto, em outro repositório, e
-responde em `app.lanchedigital.com.br`. Este repositório é só a vitrine.
+- Em produção: https://www.lanchedigital.com.br
+- Enquanto o DNS não propaga: https://lanchedigital-site-production.up.railway.app
 
-## Estrutura
+O domínio raiz, sem `www`, não é usado: o registro.br não aceita CNAME na
+raiz e o Railway só oferece CNAME. O redirecionamento da raiz para o `www`
+está pendente, e será feito pelo modo básico do painel do registro.br.
 
-```
-index.html          página única do site
-favicon.ico         ícone clássico (48×48)
-site.webmanifest    nome, cores e ícones para "adicionar à tela inicial"
-robots.txt          libera a indexação e aponta o sitemap
-sitemap.xml         lista a página para os buscadores
-imagens/            logo, logo negativo, favicon SVG, ícones de app e imagem de compartilhamento
-vercel.json         cabeçalhos de segurança enviados pela Vercel (não afeta o conteúdo)
-```
+## Como abrir no computador
 
-## Como abrir localmente
-
-Não precisa de servidor: basta abrir o `index.html` no navegador (clique duplo). As fontes
-vêm do Google Fonts, então é preciso estar conectado à internet para vê-las; sem conexão o
-site abre com a fonte padrão do sistema.
+Duplo clique em `index.html`. Não precisa de servidor nem de instalar nada.
 
 ## Como publicar
 
-A publicação é automática pela **Vercel**: todo `git push` na branch `main` gera um deploy
-novo. Não há comando de build — a Vercel serve os arquivos como estão.
+Todo `push` na branch `main` dispara deploy automático no Railway, que serve
+os arquivos com o Caddy na porta 8080. Não há etapa de build.
 
-Para alterar o site: edite o `index.html` (ou as imagens), confira no navegador, faça o
-commit e o push. Em um ou dois minutos a versão nova está no ar.
+## Arquivos
 
-## Domínio
+| Arquivo | O que é |
+|---|---|
+| `index.html` | A página única. Todo o CSS e o JavaScript estão dentro dela. |
+| `privacidade.html` | Política de privacidade, página independente. |
+| `imagens/` | Logo normal e negativa, ilustração da cantina, favicon em SVG e ícones de aplicativo. |
+| `favicon.ico` | Ícone da aba, nos tamanhos 16, 32 e 48. |
+| `robots.txt` | Libera a indexação e aponta o sitemap. |
+| `sitemap.xml` | Lista as duas páginas para os buscadores. |
+| `site.webmanifest` | Dados para instalar o site como aplicativo no celular. |
+| `CLAUDE.md` | Contexto do projeto para sessões de IA. |
 
-`lanchedigital.com.br` está registrado no registro.br e aponta para a Vercel. O `www` também
-resolve e é redirecionado para o domínio sem `www`. Os registros de DNS são configurados no
-painel do registro.br; o certificado HTTPS é emitido e renovado pela própria Vercel.
+## Decisões de arquitetura
+
+1. Estático, sem framework e sem `package.json`. É uma página só, que não
+   muda sozinha; um projeto Next.js aqui seria manutenção sem contrapartida.
+2. CSS e JavaScript embutidos no `index.html`. Com um arquivo só, não há
+   risco de uma peça subir sem a outra.
+3. Sem Google Analytics, sem pixel, sem cookie. O site fala de dado de
+   criança; rastreador ali seria contradição.
+4. Repositório separado do sistema. O sistema tem cliente pagante em
+   produção e não divide deploy com marketing.
+
+## Lacuna conhecida
+
+Os cabeçalhos de segurança `X-Content-Type-Options`, `X-Frame-Options`,
+`Referrer-Policy` e `Permissions-Policy` não estão sendo enviados. Existia
+um `vercel.json` com eles, escrito quando o destino era a Vercel; no Railway
+ele era ignorado, e foi removido. Ativá-los exigiria substituir o Caddyfile
+padrão do Railway, com risco de derrubar o site se feito errado.
+
+O risco atual é baixo: a página não tem login, formulário, cookie nem dado
+de usuário. Vale resolver quando o site ganhar qualquer uma dessas coisas.
