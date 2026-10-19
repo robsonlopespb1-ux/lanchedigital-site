@@ -328,7 +328,12 @@ body::before{content:""; position:fixed; inset:0 0 auto; z-index:31;
 .rodape ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
 .rodape a{color:var(--deep-soft); text-decoration:none}
 .rodape a:hover{color:var(--accent)}
+.rodape .assinatura{margin-top:12px; font-size:.86rem}
+.rodape .assinatura a{color:var(--deep-fg); text-decoration:underline; text-underline-offset:3px}
+.rodape .assinatura a:hover{color:var(--accent)}
 .rodape-base{border-top:1px solid var(--deep-line)}
+.rodape-base a{color:var(--deep-fg); text-decoration:underline; text-underline-offset:3px}
+.rodape-base a:hover{color:var(--accent)}
 .rodape-base .dentro{padding-block:16px; display:flex; flex-wrap:wrap; gap:10px 20px;
   justify-content:space-between; font-size:.82rem}
 
@@ -362,9 +367,9 @@ img{max-width:100%; height:auto}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5Z"/></svg>
       (83) 9 9378-0710
     </a>
-    <a href="#contato">
+    <a href="mailto:contato@fluxustecnologia.com.br">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
-      contato@lanchedigital.com.br
+      contato@fluxustecnologia.com.br
     </a>
     <a href="https://cantina-production-1066.up.railway.app">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
@@ -876,6 +881,7 @@ img{max-width:100%; height:auto}
     <div>
       <img src="imagens/logo-negativo.png" alt="Lanche Digital">
       <p>Sistema de gestão para cantinas escolares: QR Code do aluno, conta por responsável e cobrança pelo WhatsApp.</p>
+      <p class="assinatura">Um produto da <a href="https://fluxustecnologia.com.br">Fluxus Tecnologia</a>.</p>
     </div>
     <div>
       <h4>O site</h4>
@@ -891,7 +897,7 @@ img{max-width:100%; height:auto}
       <h4>Contato</h4>
       <ul>
         <li><a href="https://wa.me/5583993780710">WhatsApp (83) 9 9378-0710</a></li>
-        <li><a href="#contato">contato@lanchedigital.com.br</a></li>
+        <li><a href="mailto:contato@fluxustecnologia.com.br">contato@fluxustecnologia.com.br</a></li>
         <li>João Pessoa, Paraíba</li>
         <li><a href="https://cantina-production-1066.up.railway.app">Entrar no sistema</a></li>
       </ul>
@@ -899,8 +905,8 @@ img{max-width:100%; height:auto}
   </div>
   <div class="rodape-base">
     <div class="dentro">
-      <span>© 2026 Lanche Digital</span>
-      <span>lanchedigital.com.br</span>
+      <span>© 2026 Lanche Digital · lanchedigital.com.br</span>
+      <span>Desenvolvido pela <a href="https://fluxustecnologia.com.br">Fluxus Tecnologia</a></span>
     </div>
   </div>
 </footer>
