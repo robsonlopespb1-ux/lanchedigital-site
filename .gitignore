@@ -10,3 +10,6 @@ desktop.ini
 *.log
 
 # As imagens NÃO são ignoradas: elas fazem parte do site.
+
+# pacotes de entrega, nao fazem parte do site
+*.zip
