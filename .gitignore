@@ -1,0 +1,12 @@
+# Arquivos que o sistema operacional cria sozinho
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pasta local que o Vercel CLI cria ao ligar o projeto (nunca vai para o repositório)
+.vercel
+
+# Registros de execução
+*.log
+
+# As imagens NÃO são ignoradas: elas fazem parte do site.

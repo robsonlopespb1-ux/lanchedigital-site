@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Lanche Digital">
+  <rect x="9.25" y="7.5" width="13.5" height="9" rx="3.5" fill="none" stroke="#0B2D41" stroke-width="2.5"/>
+  <path d="M6.5,12H25.5A4.5,4.5 0 0 1 30,16.5V24.5A4.5,4.5 0 0 1 25.5,29H6.5A4.5,4.5 0 0 1 2,24.5V16.5A4.5,4.5 0 0 1 6.5,12Z" fill="#0B2D41"/>
+  <rect x="13" y="16.6" width="6" height="6" rx="1.8" fill="#F5A623"/>
+</svg>
