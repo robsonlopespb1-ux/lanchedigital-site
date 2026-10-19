@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lanchedigital.com.br/sitemap.xml
+Sitemap: https://www.lanchedigital.com.br/sitemap.xml

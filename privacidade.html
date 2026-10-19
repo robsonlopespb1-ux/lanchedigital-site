@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Política de Privacidade — Lanche Digital</title>
+<meta name="description" content="Como o Lanche Digital trata os dados de alunos e responsáveis: o que guarda, por quê, por quanto tempo e como pedir exclusão.">
+<meta name="theme-color" content="#0B2D41">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.lanchedigital.com.br/privacidade.html">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F4F6F7; --surface:#FFFFFF; --ink:#0B2D41; --ink-soft:#4A5D68;
+  --line:#DCE3E6; --accent:#F5A623; --accent-ink:#7A4E05; --accent-nevoa:#FDF1DC;
+  --deep:#0B2D41; --deep-mais:#061D2B; --deep-fg:#EAF1F4; --deep-soft:#A3BAC6; --deep-line:#1C4355;
+  --display:'Archivo',system-ui,-apple-system,sans-serif;
+  --corpo:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#07202C; --surface:#0E2B39; --ink:#E9F1F5; --ink-soft:#9FB5C0;
+    --line:#1E3F50; --accent-ink:#F7BC55; --accent-nevoa:#2A2110;
+    --deep:#04141D; --deep-mais:#020C13; --deep-line:#173949; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#07202C; --surface:#0E2B39; --ink:#E9F1F5; --ink-soft:#9FB5C0;
+  --line:#1E3F50; --accent-ink:#F7BC55; --accent-nevoa:#2A2110;
+  --deep:#04141D; --deep-mais:#020C13; --deep-line:#173949; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--ground); color:var(--ink); font-family:var(--corpo);
+  font-size:16px; line-height:1.68; -webkit-font-smoothing:antialiased}
+img{max-width:100%; height:auto}
+.faixa{width:100%}
+.dentro{max-width:780px; margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--display); margin:0; letter-spacing:-0.025em; line-height:1.12; text-wrap:balance}
+h1{font-size:clamp(1.9rem,4.4vw,2.7rem); font-weight:800}
+h2{font-size:1.22rem; font-weight:700; margin-top:40px}
+h3{font-family:var(--display); font-size:1rem; font-weight:700; margin:22px 0 0}
+p,ul,ol{margin:12px 0 0}
+ul,ol{padding-left:22px}
+li{margin-top:6px}
+a{color:var(--ink)}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:5px}
+.topo{background:var(--surface); border-bottom:1px solid var(--line)}
+.topo .dentro{display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding-block:14px; max-width:1140px}
+.topo img{width:176px; display:block}
+.voltar{font-size:.93rem; font-weight:600; text-decoration:none; color:var(--ink-soft); white-space:nowrap}
+.voltar:hover{color:var(--ink)}
+.cabeca{background:var(--deep); color:var(--deep-fg)}
+.cabeca .dentro{padding-block:clamp(36px,5vw,60px)}
+.cabeca h1{color:#fff}
+.cabeca p{color:var(--deep-soft); margin-top:14px}
+.sobrelinha{font-size:.74rem; font-weight:700; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 12px}
+main .dentro{padding-block:clamp(32px,4.5vw,52px)}
+.aviso{background:var(--accent-nevoa); border:1px solid var(--line);
+  border-radius:12px; padding:18px 20px; margin-top:26px}
+.aviso p{margin:0}
+.aviso p + p{margin-top:10px}
+.papeis{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:16px}
+@media (max-width:620px){ .papeis{grid-template-columns:minmax(0,1fr)} }
+.papel{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px}
+.papel b{display:block; font-family:var(--display); font-size:1rem}
+.papel span{display:block; font-size:.92rem; color:var(--ink-soft); margin-top:6px}
+.data{font-size:.9rem; color:var(--ink-soft); margin-top:34px; padding-top:18px;
+  border-top:1px solid var(--line)}
+.rodape{background:var(--deep-mais); color:var(--deep-soft); font-size:.9rem; margin-top:40px}
+.rodape .dentro{padding-block:30px; display:flex; flex-wrap:wrap; gap:12px 24px;
+  justify-content:space-between; max-width:1140px}
+.rodape a{color:var(--deep-fg)}
+.rodape a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="topo faixa">
+  <div class="dentro">
+    <a href="index.html" aria-label="Lanche Digital, página inicial">
+      <img src="imagens/logo.png" alt="Lanche Digital" width="600" height="113" decoding="async">
+    </a>
+    <a class="voltar" href="index.html">← Voltar ao site</a>
+  </div>
+</header>
+
+<section class="cabeca faixa">
+  <div class="dentro">
+    <p class="sobrelinha">Lanche Digital</p>
+    <h1>Política de Privacidade</h1>
+    <p>O sistema guarda nome, turma e foto de crianças. Esta página diz exatamente o que é guardado, por quê, por quanto tempo e como pedir que seja apagado.</p>
+  </div>
+</section>
+
+<main>
+  <div class="dentro">
+
+    <h2>Quem responde pelos dados</h2>
+    <p>Duas empresas diferentes têm papéis diferentes, e a distinção importa para você saber a quem recorrer.</p>
+    <div class="papeis">
+      <div class="papel">
+        <b>A cantina</b>
+        <span>É a <strong>controladora</strong>. Ela decide quais alunos cadastrar, para que usar os dados e por quanto tempo mantê-los. É com ela que o responsável fala.</span>
+      </div>
+      <div class="papel">
+        <b>Fluxus Tecnologia</b>
+        <span>É a <strong>operadora</strong>. Fornece o sistema e trata os dados apenas seguindo as instruções da cantina. Não usa os dados para nenhuma finalidade própria.</span>
+      </div>
+    </div>
+    <p>Esta política descreve como o sistema funciona. Cada cantina pode ter obrigações adicionais junto à escola em que atua.</p>
+
+    <h2>Quais dados o sistema guarda</h2>
+    <h3>Do aluno</h3>
+    <ul>
+      <li>Nome completo e, se houver, nome social</li>
+      <li>Matrícula, turma e turno</li>
+      <li>Foto do rosto — <strong>opcional</strong>, usada apenas para o caixa conferir que o QR Code é do próprio aluno</li>
+      <li>Limite de gastos por dia e por mês</li>
+      <li>Observação operacional escrita pela cantina</li>
+    </ul>
+    <h3>Do responsável</h3>
+    <ul>
+      <li>Nome e telefone de WhatsApp</li>
+      <li>Vínculo com o aluno</li>
+    </ul>
+    <h3>Do uso da cantina</h3>
+    <ul>
+      <li>Cada compra: data, hora, itens, valores e quem registrou</li>
+      <li>Pagamentos recebidos e estornos, com motivo e autor</li>
+      <li>Registros de acesso e de operações feitas pela equipe</li>
+    </ul>
+    <h3>O que o sistema NÃO coleta</h3>
+    <p>CPF do aluno, endereço residencial, dados de saúde, dados bancários do responsável, localização, e qualquer informação não listada acima.</p>
+
+    <h2>Para que os dados são usados</h2>
+    <ul>
+      <li>Identificar o aluno no caixa no momento da compra</li>
+      <li>Registrar a compra e manter a conta do responsável em dia</li>
+      <li>Respeitar o limite de gastos definido pelo próprio responsável</li>
+      <li>Montar a cobrança e o extrato enviados ao responsável</li>
+      <li>Permitir que a cantina confira o caixa e emita relatórios do próprio movimento</li>
+    </ul>
+    <p>Os dados não são usados para publicidade, perfilamento, pontuação de crédito ou qualquer finalidade que não as acima.</p>
+
+    <h2>Com que autorização</h2>
+    <p>O cadastro é preenchido pelo <strong>próprio responsável</strong>, por um link individual enviado pela cantina. No fim do formulário ele marca uma autorização expressa e destacada, informando que é responsável pelo aluno e que autoriza o uso dos dados para identificá-lo no caixa, registrar as compras e receber as cobranças.</p>
+    <p><strong>Sem essa autorização registrada, o aluno não é ativado no sistema.</strong> Não existe caminho que contorne isso.</p>
+    <p>As bases legais são o consentimento específico e destacado do responsável, nos termos do art. 7º, I e do art. 14, §1º da Lei nº 13.709/2018 (LGPD), e a execução do contrato entre a família e a cantina, quanto ao registro financeiro das compras.</p>
+
+    <h2>Crianças e adolescentes</h2>
+    <p>O tratamento é feito no melhor interesse do aluno. Três consequências práticas disso no sistema:</p>
+    <ul>
+      <li>A foto é opcional. O cadastro funciona sem ela, e o caixa confere o nome com o aluno quando não houver foto.</li>
+      <li>A autorização pode ser revogada a qualquer momento. Ao registrar a revogação, o sistema <strong>apaga a foto do armazenamento e inativa o aluno na mesma hora</strong>.</li>
+      <li>Nenhum dado de aluno é usado para contato comercial, nem com a família, nem com terceiros.</li>
+    </ul>
+
+    <h2>Com quem os dados são compartilhados</h2>
+    <p><strong>Com ninguém.</strong> Não há venda, cessão, troca ou repasse de dados a terceiros, e não há publicidade no sistema.</p>
+    <p>A mensagem de cobrança é enviada <strong>pelo próprio funcionário da cantina</strong>, pelo WhatsApp dele. O sistema prepara o texto e abre a conversa, mas não envia nada sozinho e não tem acesso às conversas.</p>
+    <p>Para funcionar, o sistema usa dois fornecedores de infraestrutura, que tratam os dados apenas para hospedar o serviço e não os utilizam para finalidade própria:</p>
+    <ul>
+      <li><strong>Railway</strong> — servidores da aplicação e banco de dados</li>
+      <li><strong>Google Firebase Storage</strong> — armazenamento das fotos dos alunos</li>
+    </ul>
+
+    <h2>Por quanto tempo os dados ficam guardados</h2>
+    <ul>
+      <li><strong>Cadastro do aluno:</strong> anonimizado 2 anos após a inativação, desde que não haja saldo em aberto</li>
+      <li><strong>Livro financeiro:</strong> pseudonimizado e mantido por 5 anos, por necessidade contábil e fiscal</li>
+      <li><strong>Foto:</strong> enquanto durar a autorização. É apagada imediatamente na revogação, na exclusão a pedido, ou quando a cantina ou o responsável solicitarem</li>
+      <li><strong>Registros de auditoria:</strong> acompanham o livro financeiro</li>
+    </ul>
+
+    <h2>Direitos do responsável</h2>
+    <p>O responsável pode, a qualquer momento e sem custo:</p>
+    <ul>
+      <li>Confirmar que existe tratamento de dados do seu filho</li>
+      <li>Acessar os dados cadastrados e o histórico de compras</li>
+      <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+      <li>Pedir a eliminação dos dados</li>
+      <li>Revogar a autorização dada no cadastro</li>
+    </ul>
+    <p><strong>Como exercer:</strong> falando com a cantina. O sistema tem uma tela específica de exclusão a pedido do responsável, que exige registrar quem solicitou e o motivo, e que lista na tela o que será apagado e o que será preservado antes de confirmar.</p>
+    <div class="aviso">
+      <p><strong>O que é apagado:</strong> nome, nome social, matrícula, turma, turno, observações, a foto (removida do armazenamento) e os QR Codes e links enviados à família, revogados na hora.</p>
+      <p><strong>O que é preservado:</strong> o histórico financeiro, sem o nome do aluno. Registro de dinheiro não pode ser apagado — é obrigação legal e também proteção da própria família, caso haja divergência sobre um pagamento.</p>
+    </div>
+
+    <h2>Como os dados são protegidos</h2>
+    <ul>
+      <li>Cada cantina enxerga apenas os próprios alunos. O isolamento é imposto pelo banco de dados, não pela tela, e foi testado com dois clientes simultâneos.</li>
+      <li>Cada funcionário tem conta individual, com senha que ele mesmo define. Ninguém define senha de terceiro.</li>
+      <li>Toda operação fica registrada em auditoria, com autor e horário.</li>
+      <li>O registro financeiro é somente-adição: uma correção entra como lançamento novo, nunca como linha editada ou apagada.</li>
+      <li>Backup diário do banco, com recuperação para qualquer momento. A restauração foi executada e conferida, não é apenas uma promessa.</li>
+      <li>Todo o acesso é por conexão cifrada (HTTPS).</li>
+    </ul>
+
+    <h2>Alterações nesta política</h2>
+    <p>Se esta política mudar, a cantina contratante é avisada e a data abaixo é atualizada. Mudanças que ampliem o uso dos dados dependem de nova autorização do responsável.</p>
+
+    <h2>Contato</h2>
+    <p>Para dúvidas sobre esta política ou sobre o tratamento de dados no sistema:</p>
+    <p><strong>Fluxus Tecnologia</strong><br>
+    <a href="mailto:contato@fluxustecnologia.com.br">contato@fluxustecnologia.com.br</a><br>
+    João Pessoa, Paraíba</p>
+    <p>Para exercer direitos sobre os dados de um aluno, fale primeiro com a cantina em que ele estuda — é ela quem controla esses dados.</p>
+
+    <p class="data">Última atualização: 19 de outubro de 2026.</p>
+
+  </div>
+</main>
+
+<footer class="rodape faixa">
+  <div class="dentro">
+    <span>© 2026 Lanche Digital · <a href="index.html">lanchedigital.com.br</a></span>
+    <span>Desenvolvido pela <a href="https://fluxustecnologia.com.br">Fluxus Tecnologia</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
