@@ -441,6 +441,23 @@ section[id]{scroll-margin-top:84px}
   stroke-linecap:round; stroke-linejoin:round; transition:transform .25s ease}
 .porta:hover .porta-botao .seta,.porta:focus-visible .porta-botao .seta{transform:translateX(4px)}
 
+/* ---------- quadro de fotos ---------- */
+.vitrine{margin-top:28px; display:flex; flex-direction:column; gap:12px; max-width:560px}
+.vitrine-quadro{position:relative; width:100%; aspect-ratio:3/2; border-radius:16px;
+  overflow:hidden; background:var(--deep-mais);
+  box-shadow:0 22px 46px -30px rgba(0,0,0,.8)}
+.vitrine-foto{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity .9s ease}
+.vitrine-foto.ativa{opacity:1}
+/* as bolinhas so aparecem quando o script esta de pe; sem ele seriam botoes mortos */
+.vitrine-pontos{display:none; gap:4px; justify-content:center}
+.js .vitrine-pontos{display:flex}
+.vitrine-ponto{width:32px; height:32px; border:0; padding:0; background:transparent;
+  cursor:pointer; display:grid; place-items:center}
+.vitrine-ponto::after{content:""; width:9px; height:9px; border-radius:50%;
+  background:var(--deep-line); transition:background .25s ease, transform .25s ease}
+.vitrine-ponto:hover::after{background:var(--deep-soft)}
+.vitrine-ponto.ativo::after{background:var(--accent); transform:scale(1.3)}
 @media print{
   .js .revela{opacity:1!important; transform:none!important}
   .js .zap .bolha,.js .zap .zap-hora{opacity:1!important}
@@ -812,6 +829,23 @@ img{max-width:100%; height:auto}
         <p class="sobrelinha">Dado de criança</p>
         <h2>Cadastro de aluno não é cadastro de cliente.</h2>
         <p>O sistema guarda nome, turma e foto de crianças. Isso muda o que ele pode fazer, e foi construído com essa diferença desde o primeiro dia — não acrescentada depois.</p>
+
+        <div class="vitrine" aria-label="Fotos da cantina">
+          <div class="vitrine-quadro">
+            <img class="vitrine-foto ativa" src="imagens/foto-coxinha.jpg" width="1200" height="805" loading="lazy" decoding="async" alt="Coxinhas de frango douradas e recém-fritas numa bandeja da cantina.">
+            <img class="vitrine-foto" src="imagens/foto-atendente.jpg" width="1200" height="805" loading="lazy" decoding="async" alt="Atendente de cantina sorrindo atrás do balcão, de avental azul-marinho.">
+            <img class="vitrine-foto" src="imagens/foto-hamburguer.jpg" width="1200" height="805" loading="lazy" decoding="async" alt="Hambúrguer de cantina escolar ao lado de uma lata de refrigerante gelada.">
+            <img class="vitrine-foto" src="imagens/foto-crianca.jpg" width="1200" height="805" loading="lazy" decoding="async" alt="Criança de uniforme escolar sorrindo ao receber um salgado no balcão da cantina.">
+            <img class="vitrine-foto" src="imagens/foto-salada-frutas.jpg" width="1200" height="805" loading="lazy" decoding="async" alt="Salada de frutas em copo transparente, com mamão, manga, melancia e uva.">
+          </div>
+          <div class="vitrine-pontos">
+            <button type="button" class="vitrine-ponto ativo" aria-label="Mostrar foto 1 de 5"></button>
+            <button type="button" class="vitrine-ponto" aria-label="Mostrar foto 2 de 5"></button>
+            <button type="button" class="vitrine-ponto" aria-label="Mostrar foto 3 de 5"></button>
+            <button type="button" class="vitrine-ponto" aria-label="Mostrar foto 4 de 5"></button>
+            <button type="button" class="vitrine-ponto" aria-label="Mostrar foto 5 de 5"></button>
+          </div>
+        </div>
       </div>
       <ul class="lista-seg">
         <li>
@@ -996,6 +1030,31 @@ img{max-width:100%; height:auto}
   /* a mensagem do responsável "chega" depois dos pontinhos */
   var zap = document.querySelector('.zap');
   if (zap) { window.setTimeout(function () { zap.classList.add('chegou'); }, 1000); }
+
+  /* quadro de fotos: troca sozinho, para no mouse e nas bolinhas */
+  var vitrine = document.querySelector('.vitrine');
+  if (vitrine) {
+    var fotos = vitrine.querySelectorAll('.vitrine-foto');
+    var pontos = vitrine.querySelectorAll('.vitrine-ponto');
+    var atual = 0, relogio = null;
+    var mostrar = function (i) {
+      fotos[atual].classList.remove('ativa');
+      pontos[atual].classList.remove('ativo');
+      atual = (i + fotos.length) % fotos.length;
+      fotos[atual].classList.add('ativa');
+      pontos[atual].classList.add('ativo');
+    };
+    var parar = function () { if (relogio) { window.clearInterval(relogio); relogio = null; } };
+    var andar = function () { parar(); relogio = window.setInterval(function () { mostrar(atual + 1); }, 4000); };
+    pontos.forEach(function (p, i) {
+      p.addEventListener('click', function () { mostrar(i); andar(); });
+    });
+    vitrine.addEventListener('mouseenter', parar);
+    vitrine.addEventListener('mouseleave', andar);
+    vitrine.addEventListener('focusin', parar);
+    vitrine.addEventListener('focusout', andar);
+    andar();
+  }
 
   } catch (erro) {
     /* qualquer falha acima e a pagina volta ao estado estatico, com tudo visivel */
