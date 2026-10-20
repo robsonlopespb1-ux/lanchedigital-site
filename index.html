@@ -423,10 +423,16 @@ section[id]{scroll-margin-top:84px}
   transition:transform .3s cubic-bezier(.22,.85,.3,1), box-shadow .3s ease, border-color .3s ease}
 .porta:hover,.porta:focus-visible{transform:translateY(-6px); border-color:var(--accent);
   box-shadow:0 26px 48px -30px rgba(11,45,65,.55)}
-.porta-arte{display:block; overflow:hidden; background:#FEF5E5}
-.porta-arte img{display:block; width:100%; height:auto;
-  transition:transform .5s cubic-bezier(.22,.85,.3,1)}
-.porta:hover .porta-arte img,.porta:focus-visible .porta-arte img{transform:scale(1.06)}
+.porta-arte{display:block; overflow:hidden; background:#FEF5E5; perspective:1400px}
+.porta-giro{display:block; position:relative; transform-style:preserve-3d;
+  transition:transform .9s cubic-bezier(.5,.05,.3,1)}
+.porta:last-child .porta-giro{transition-delay:.18s}
+.porta-face{display:block; width:100%; height:auto;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  transition:scale .5s cubic-bezier(.22,.85,.3,1)}
+.porta-verso{position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:50% 22%; transform:rotateY(180deg)}
+.porta:hover .porta-face,.porta:focus-visible .porta-face{scale:1.06}
 .porta-texto{display:flex; flex-direction:column; gap:10px; padding:22px 24px 26px}
 .porta-titulo{font-family:var(--display); font-size:1.22rem; font-weight:700;
   letter-spacing:-0.015em; line-height:1.2}
@@ -534,8 +540,14 @@ img{max-width:100%; height:auto}
 
         <a class="porta" href="https://cantina-production-1066.up.railway.app">
           <span class="porta-arte">
-            <img src="imagens/porta-familia.webp" width="1000" height="750" loading="lazy" decoding="async"
-                 alt="Ilustração de um pai, uma mãe e um filho de uniforme escolar, sorrindo, com a criança mostrando o QR Code na tela do celular.">
+            <span class="porta-giro">
+              <img class="porta-face" src="imagens/porta-familia.webp"
+                   width="1000" height="750" loading="lazy" decoding="async"
+                   alt="Ilustração de um pai, uma mãe e um filho de uniforme escolar, sorrindo, com a criança mostrando o QR Code na tela do celular.">
+              <img class="porta-face porta-verso" src="imagens/porta-familia-real.jpg"
+                   width="1000" height="750" loading="lazy" decoding="async"
+                   alt="Foto realista de um pai, uma mãe e um filho de uniforme escolar, sorrindo, com a criança mostrando o QR Code na tela do celular.">
+            </span>
           </span>
           <span class="porta-texto">
             <span class="porta-titulo">Pais e responsáveis</span>
@@ -548,8 +560,14 @@ img{max-width:100%; height:auto}
 
         <a class="porta" href="https://cantina-production-1066.up.railway.app">
           <span class="porta-arte">
-            <img src="imagens/porta-atendente.webp" width="1000" height="750" loading="lazy" decoding="async"
-                 alt="Ilustração de uma atendente de cantina, de avental azul, sorrindo com o celular na mão.">
+            <span class="porta-giro">
+              <img class="porta-face" src="imagens/porta-atendente.webp"
+                   width="1000" height="750" loading="lazy" decoding="async"
+                   alt="Ilustração de uma atendente de cantina, de avental azul, sorrindo com o celular na mão.">
+              <img class="porta-face porta-verso" src="imagens/porta-atendente-real.jpg"
+                   width="1000" height="750" loading="lazy" decoding="async"
+                   alt="Foto realista de uma atendente de cantina, de avental azul, sorrindo com o celular na mão.">
+            </span>
           </span>
           <span class="porta-texto">
             <span class="porta-titulo">Equipe da cantina</span>
@@ -1054,6 +1072,25 @@ img{max-width:100%; height:auto}
     vitrine.addEventListener('focusin', parar);
     vitrine.addEventListener('focusout', andar);
     andar();
+  }
+
+  /* cartoes de acesso: meia volta por vez, sempre no mesmo sentido */
+  var giros = document.querySelectorAll('.porta-giro');
+  if (giros.length) {
+    var angulo = 0, volta = null;
+    var virar = function () {
+      angulo += 180;
+      giros.forEach(function (g) { g.style.transform = 'rotateY(' + angulo + 'deg)'; });
+    };
+    var segura = function () { if (volta) { window.clearInterval(volta); volta = null; } };
+    var solta = function () { segura(); volta = window.setInterval(virar, 3400); };
+    document.querySelectorAll('.porta').forEach(function (c) {
+      c.addEventListener('mouseenter', segura);
+      c.addEventListener('mouseleave', solta);
+      c.addEventListener('focusin', segura);
+      c.addEventListener('focusout', solta);
+    });
+    solta();
   }
 
   } catch (erro) {
