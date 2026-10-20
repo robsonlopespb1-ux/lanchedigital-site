@@ -481,6 +481,40 @@ section[id]{scroll-margin-top:84px}
   .js .zap .bolha,.js .zap .zap-hora{opacity:1!important}
   .digitando{display:none!important}
 }
+
+/* o e-mail nao cabe na terceira coluna do rodape em telas de tablet (768px) */
+.rodape ul a{overflow-wrap:anywhere}
+
+/* ---------- ajustes de celular (medidos em 360x800) ---------- */
+@media (max-width:600px){
+  /* o cabecalho pedia 404px numa tela de 360 e empurrava a pagina para o lado,
+     deixando o botao do WhatsApp cortado o tempo todo */
+  .topo .dentro{gap:10px; padding-block:9px}
+  .marca img{width:130px}
+  .topo .botao.pequeno{padding:10px 14px; font-size:.84rem; min-height:44px}
+
+  /* a barra de contato quebrava em duas linhas; o e-mail inteiro nao cabe
+     e continua disponivel no rodape */
+  .barra .dentro{justify-content:center; gap:0 18px; padding-block:0}
+  .barra a[href^="mailto:"]{display:none}
+  .barra a{min-height:44px; min-width:44px; justify-content:center; padding-inline:4px}
+
+  /* alvos de toque de 44px, o minimo confortavel para o dedo */
+  .vitrine-ponto{width:44px; height:44px}
+  .rodape-social{padding-block:8px}
+  .rodape ul{gap:2px}
+  .rodape ul a{display:inline-block; padding-block:9px}
+
+  /* o polegar alcanca melhor um botao que ocupa a largura toda */
+  .capa-acoes{flex-direction:column; align-items:stretch; gap:10px}
+  .capa-acoes .botao{width:100%}
+  .final .capa-acoes .contato-nu{text-align:center; width:100%}
+
+  /* a pagina tem quase 14 telas no celular; isto devolve cerca de meia tela */
+  .portas .dentro,.beneficios .dentro,.funciona .dentro,.recursos .dentro,
+  .seguranca .dentro,.perguntas .dentro,.problema .dentro,.final .dentro{
+    padding-block:38px; row-gap:26px}
+}
 </style>
 <style>
 /* Normalizações que o site precisa por conta própria (fora do ambiente de artifact) */
